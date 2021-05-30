@@ -12,7 +12,6 @@ import {
 } from './typings';
 
 export default class CoinCap {
-  constructor() {}
   // Assets
   async getAllAssets(options?: OptionAssetsRequest): Promise<GetAllAssetsResponse> {
     const { data } = await instance.get<GetAllAssetsResponse>('/assets', { params: options });
