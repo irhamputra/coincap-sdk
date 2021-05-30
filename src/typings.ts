@@ -1,4 +1,4 @@
-type OptionAssetsRequest = {
+type GetAssetsOptionsRequest = {
   search?: string;
   ids?: string;
   limit?: string;
@@ -91,8 +91,30 @@ type GetRatesByIdResponse = {
   timestamp: number;
 };
 
+type ExchangeData = {
+  id: string;
+  name: string;
+  rank: string;
+  percentTotalVolume: string;
+  volumeUsd: string;
+  tradingPairs: string;
+  socket: boolean;
+  exchangeUrl: string;
+  updated: any;
+};
+
+type GetAllExchangeResponse = {
+  data: ExchangeData[];
+  timestamp: number;
+};
+
+type GetExchangeByIdResponse = {
+  data: ExchangeData;
+  timestamp: number;
+};
+
 export {
-  OptionAssetsRequest,
+  GetAssetsOptionsRequest,
   GetAllAssetsResponse,
   GetAssetByIdResponse,
   GetAssetsHistoryByIdResponse,
@@ -101,4 +123,6 @@ export {
   GetAssetMarketOptionRequest,
   GetRatesResponse,
   GetRatesByIdResponse,
+  GetAllExchangeResponse,
+  GetExchangeByIdResponse,
 };
