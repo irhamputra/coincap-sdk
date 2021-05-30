@@ -21,16 +21,19 @@ export default class CoinCap {
   }
 
   async getAssetById(id: string): Promise<GetAssetByIdResponse> {
+    if (!id) throw new Error('Id must not be empty');
     const { data } = await instance.get<GetAssetByIdResponse>(`/assets/${id}`);
     return { data: data.data, timestamp: data.timestamp };
   }
 
   async getAssetHistoryById(id: string, options?: GetAssetsHistoryByIdRequest): Promise<GetAssetsHistoryByIdResponse> {
+    if (!id) throw new Error('Id must not be empty');
     const { data } = await instance.get<GetAssetsHistoryByIdResponse>(`/assets/${id}/history`, { params: options });
     return { data: data.data, timestamp: data.timestamp };
   }
 
   async getAssetMarketById(id: string, options?: GetAssetMarketOptionRequest): Promise<GetAssetMarketByIdResponse> {
+    if (!id) throw new Error('Id must not be empty');
     const { data } = await instance.get<GetAssetMarketByIdResponse>(`/assets/${id}/markets`, { params: options });
     return { data: data.data, timestamp: data.timestamp };
   }
@@ -42,6 +45,7 @@ export default class CoinCap {
   }
 
   async getRatesById(id: string): Promise<GetRatesByIdResponse> {
+    if (!id) throw new Error('Id must not be empty');
     const { data } = await instance.get<GetRatesByIdResponse>(`/rates/${id}`);
     return { data: data.data, timestamp: data.timestamp };
   }
@@ -53,6 +57,7 @@ export default class CoinCap {
   }
 
   async getExchangeById(id: string): Promise<GetExchangeByIdResponse> {
+    if (!id) throw new Error('Id must not be empty');
     const { data } = await instance.get<GetExchangeByIdResponse>(`/exchanges/${id}`);
     return { data: data.data, timestamp: data.timestamp };
   }
